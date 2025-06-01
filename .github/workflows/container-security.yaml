@@ -1,0 +1,65 @@
+name: Container Security Scan
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+  packages: read
+
+jobs:
+  trivy-scan:
+    name: Trivy CVE Scanner + Docker Push
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/falcon-api:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/falcon-api:${{ github.sha }}
+
+      - name: Create Reports Directory
+        run: mkdir -p reports
+
+      - name: Run Trivy CVE Scanner
+        uses: aquasecurity/trivy-action@0.14.0
+        with:
+          image-ref: ${{ secrets.DOCKERHUB_USERNAME }}/falcon-api:${{ github.sha }}
+          format: table
+          output: reports/trivy-report.txt
+          severity: CRITICAL,HIGH
+
+      - name: Display Trivy Report
+        run: cat reports/trivy-report.txt
+
+      - name: Upload Trivy Report Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: trivy-report
+          path: reports/trivy-report.txt
+
+      - name: Lint Dockerfile with Hadolint
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Dockerfile
