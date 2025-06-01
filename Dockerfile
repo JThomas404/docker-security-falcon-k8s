@@ -20,8 +20,8 @@ WORKDIR /app
 
 COPY ./app /app
 
-RUN addgroup --system pygroup && \
-    adduser --system --ingroup pygroup pyuser && \
+RUN addgroup --system --gid 1001 pygroup && \
+    adduser --system --uid 1001 --gid 1001 pyuser && \
     chown -R pyuser:pygroup /app
 
 USER pyuser

@@ -1,26 +1,14 @@
-# Python
 __pycache__/
-*.py[cod]
+*.pyc
 *.pyo
-
-# Env
+*.pyd
+*.db
+*.sqlite3
 .env
-*.env
-
-# OS
-.DS_Store
-
-# VCS
+.env.*
 .git
 .gitignore
-
-# Docker
 Dockerfile
-.dockerignore
-
-# Tests / IDE / Dev
-tests/
 *.log
-*.sqlite
-.idea/
-.vscode/
+README.md
+SECURITY.md

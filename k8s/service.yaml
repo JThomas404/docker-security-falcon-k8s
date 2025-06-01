@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: falcon-api-service
+  namespace: falcon
+
+spec:
+  selector:
+    app: falcon-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: ClusterIP

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: falcon-api
+  namespace: falcon
+  labels:
+    app: falcon-api
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: falcon-api
+
+  template:
+    metadata:
+      labels:
+        app: falcon-api
+
+    spec:
+      containers:
+        - name: falcon-api
+          image: falcon-api:v1
+          ports:
+            - containerPort: 8000
+          securityContext:
+            runAsUser: 1001
+            runAsGroup: 1001
+            runAsNonRoot: true
+            readOnlyRootFilesystem: true
