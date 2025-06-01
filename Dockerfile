@@ -1,5 +1,7 @@
 FROM python:3.11.12-slim AS builder
 
+WORKDIR /app
+
 RUN python -m venv /opt/venv
 
 ENV PATH="/opt/venv/bin:$PATH"

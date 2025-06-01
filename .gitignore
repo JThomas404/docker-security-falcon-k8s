@@ -20,8 +20,7 @@ ENV/
 # Logs
 *.log
 
-# Secrets or Credentials (DO NOT COMMIT)
-.env
+# Secrets or Credentials
 *.pem
 *.key
 
@@ -39,6 +38,7 @@ docker-compose.override.yml
 .trivy/
 scan-results/
 
-# OS junk
+# OS
 .DS_Store
 Thumbs.db
+.history/
