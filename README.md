@@ -164,7 +164,7 @@ Total: 0 (CRITICAL: 0, HIGH: 0, MEDIUM: 0)
 
 This demonstrates how proper base image selection, minimal dependencies, and Trivy-in-the-loop reduced attack surface.
 
-📦 Docker Hub Image: [zermann/falcon-api](https://hub.docker.com/repository/docker/zermann/falcon-api)
+My Docker Hub Image: [zermann/falcon-api](https://hub.docker.com/repository/docker/zermann/falcon-api)
 
 ---
 
@@ -205,9 +205,9 @@ Then navigate to: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ## Future Improvements
 
-- ✅ [PodSecurityAdmission](https://kubernetes.io/docs/concepts/security/pod-security-admission/)
-- ✅ [NetworkPolicies](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
-- ✅ [Signed container image verification (e.g. Cosign)](https://forums.docker.com/t/verifying-signatures-of-images-signed-by-cosign/136928)
+- [PodSecurityAdmission](https://kubernetes.io/docs/concepts/security/pod-security-admission/)
+- [NetworkPolicies](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
+- [Signed container image verification (e.g. Cosign)](https://forums.docker.com/t/verifying-signatures-of-images-signed-by-cosign/136928)
 
 These are listed in `SECURITY.md` with the purpose of implementing the thought patterns expected from a cloud security-conscious engineering. For full details on threat model, justification for each layer, and advanced DevSecOps protections, see: [Hardened Kubernetes & Docker Deployment for Falcon API](./SECURITY.md)
 
