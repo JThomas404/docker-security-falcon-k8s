@@ -64,7 +64,7 @@ User → Service (ClusterIP)
 - **Docker**: Containerisation engine with hardening applied
 - **Trivy**: Vulnerability scanner in CI/CD pipeline
 - **GitHub Actions**: CI/CD automation for builds and scans
-- **Kubernetes (Minikube)**: Orchestration with RBAC, probes, and secrets
+- **Kubernetes**: Orchestration with RBAC, probes, and secrets
 
 ---
 
