@@ -1,14 +1,14 @@
 from fastapi import FastAPI
-from app.models import Todo
+from models import Todo
+from typing import List
 
 app = FastAPI()
-
 
 @app.get("/")
 async def root():
     return {"Hello": "World"}
 
-todos = []
+todos: List[Todo] = []
 
 # Get all todos
 @app.get("/todos")
@@ -47,3 +47,8 @@ async def delete_todos(todo_id: int):
             todos.remove(todo)
             return {"message": "Todo has been DELETED!"}
     return {"message": "No todos found"}
+
+# Health check endpoint for Kubernetes probes
+@app.get("/healthz")
+async def health_check():
+    return {"status": "ok"}
