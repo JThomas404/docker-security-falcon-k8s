@@ -26,6 +26,12 @@ spec:
             runAsGroup: 1001
             runAsNonRoot: true
             readOnlyRootFilesystem: true
+          env:
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: falcon-api-secret
+                  key: API_KEY
           livenessProbe:
             httpGet:
               path: /healthz
