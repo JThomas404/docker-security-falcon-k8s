@@ -205,7 +205,7 @@ Then navigate to: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ## Future Improvements
 
-- ✅ [PodSecurityAdmission] (https://kubernetes.io/docs/concepts/security/pod-security-admission/)
+- ✅ [PodSecurityAdmission](https://kubernetes.io/docs/concepts/security/pod-security-admission/)
 - ✅ [NetworkPolicies](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
 - ✅ [Signed container image verification (e.g. Cosign)](https://forums.docker.com/t/verifying-signatures-of-images-signed-by-cosign/136928)
 
