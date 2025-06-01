@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: falcon-api-service
   namespace: falcon
-
 spec:
   selector:
     app: falcon-api
