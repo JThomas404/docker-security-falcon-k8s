@@ -1,0 +1,44 @@
+# Python Bytecode and Cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual Environments
+.venv/
+env/
+venv/
+ENV/
+*.egg-info/
+
+# IDE Settings
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Logs
+*.log
+
+# Secrets or Credentials (DO NOT COMMIT)
+.env
+*.pem
+*.key
+
+# Docker-related
+*.tar
+*.img
+docker-compose.override.yml
+
+# Kubernetes config
+*.kube/
+.kubeconfig
+.kube/
+
+# GitHub workflows (generated files)
+.trivy/
+scan-results/
+
+# OS junk
+.DS_Store
+Thumbs.db
